@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bd6177poy05g"]
+
+[ext_resource type="PackedScene" uid="uid://cx6fdo581ypq4" path="res://Scenes/Player/Player.tscn" id="1_r150o"]
+[ext_resource type="Script" uid="uid://c482xr6qqpme5" path="res://Scenes/Systems/EnemySpawner.gd" id="3_kln2b"]
+[ext_resource type="Script" uid="uid://b7rjkjmqslv2d" path="res://Scripts/Global/SpawnWave.gd" id="3_rgh2o"]
+[ext_resource type="Resource" uid="uid://dqbt6rjpt453b" path="res://Resources/Waves/Wave0.tres" id="4_pbw6q"]
+
+[node name="Main" type="Node2D" unique_id=1505174941]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=844007263]
+visible = false
+offset_left = -10000.0
+offset_top = -10000.0
+offset_right = 10010.0
+offset_bottom = 10010.0
+
+[node name="Player" parent="." unique_id=205542719 instance=ExtResource("1_r150o")]
+
+[node name="EnemySpawner" type="Node2D" parent="." unique_id=762558299]
+script = ExtResource("3_kln2b")
+waves = Array[ExtResource("3_rgh2o")]([ExtResource("4_pbw6q")])
+
+[node name="Timer" type="Timer" parent="EnemySpawner" unique_id=2107986938]
+wait_time = 1.5
+autostart = true

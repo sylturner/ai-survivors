@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dyffdgtoc13"]
+
+[ext_resource type="Script" uid="uid://ctm8d18kaquku" path="res://Scenes/Weapons/Weapon.gd" id="1_mvueu"]
+
+[node name="Weapon" type="Node2D" unique_id=419358785]
+script = ExtResource("1_mvueu")
+
+[node name="Timer" type="Timer" parent="." unique_id=771530977]

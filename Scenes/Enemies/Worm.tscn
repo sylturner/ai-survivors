@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bwfqiotudaxbk"]
+
+[ext_resource type="PackedScene" uid="uid://bjeolbs533u4e" path="res://Scenes/Enemies/Enemy.tscn" id="1_id7ov"]
+[ext_resource type="Texture2D" uid="uid://d1o6k6nd8keeq" path="res://Assets/Sprites/Enemies/Worm/48x48Worm_Crawl.png" id="2_isv3s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iltmc"]
+atlas = ExtResource("2_isv3s")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjubs"]
+atlas = ExtResource("2_isv3s")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu6t8"]
+atlas = ExtResource("2_isv3s")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhofo"]
+atlas = ExtResource("2_isv3s")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo4a2"]
+atlas = ExtResource("2_isv3s")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kon5m"]
+atlas = ExtResource("2_isv3s")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chk72"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iltmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjubs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu6t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhofo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo4a2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kon5m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Enemy" unique_id=1475723394 instance=ExtResource("1_id7ov")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1679532297]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_chk72")
+frame = 4
+frame_progress = 0.18012239
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1489293404]
+position = Vector2(0, -4)
+rotation = 1.5795232

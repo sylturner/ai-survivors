@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://bm12018i8m18m"]
+
+[ext_resource type="PackedScene" uid="uid://c1kwd1t020wqf" path="res://Scenes/Projectiles/ShortCircuit.tscn" id="1_b5e6x"]
+[ext_resource type="Script" uid="uid://ytde8ydee5vu" path="res://Scripts/Global/WeaponData.gd" id="1_eanlv"]
+
+[resource]
+script = ExtResource("1_eanlv")
+name = "Short Circuit"
+projectile_node = ExtResource("1_b5e6x")
+cooldown = 0.5
+metadata/_custom_type_script = "uid://ytde8ydee5vu"
