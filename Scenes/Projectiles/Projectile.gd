@@ -1,28 +1,30 @@
 extends Area2D
+class_name Projectile
 
-var speed: float = 0
-var damage: float = 0
+var speed: float = 0.0
+var damage: float = 0.0
 var direction: Vector2 = Vector2.ZERO
 var death_effect: PackedScene
 
-func launch(dir: Vector2, spd: float, dmg: float, life: float, death_fx: PackedScene ) -> void:
-	direction = dir
+func launch(dir: Vector2, spd: float, dmg: float, life: float, death_fx: PackedScene ) -> void:	
+	direction = dir.normalized()
 	speed = spd
 	damage = dmg
 	death_effect = death_fx	
 	
 	rotation = direction.angle()
 	
-	get_tree().create_timer(life).timeout.connect(die)
+	var timer = get_tree().create_timer(life)
+	timer.timeout.connect(die)
 	
 func _process(delta: float) -> void:
 	position += direction * speed * delta
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:	
 	if body.is_in_group("enemies"):
 		if body.has_method("take_damage"):
 			body.take_damage(damage)
-		die()
+			die()
 		
 
 func die() -> void:

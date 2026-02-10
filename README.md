@@ -8,6 +8,24 @@ I'll try my best to document our progress on the project.
 
 ## Updates
 
+### Feb 9, 2026
+Got the weapons stuff in place for the most part. Starting to doubt my
+file names and folder structures, but I'll get to that later.
+
+For Weapons, I'm following the same set up for Enemies. We have a "Data"
+resource that will drive the behavior of the Weapon.
+
+I quickly realized that 'weapons' are mostly projectiles.
+
+Once I realized that we're just launching projectiles on a timer, it
+made things a little easier to grasp.
+
+I also got the enemies taking damage from the projectiles. They flash a
+little, too.
+
+Lots of good plumbing in place. Still want to do a few more things with
+Weapons and tidying up the folder structure.
+
 ### Feb 2, 2026
 Got most of the systems in place. I played around with Godot a while ago, but didn't retain any of it. So I've been relearning. It's... fine.
 

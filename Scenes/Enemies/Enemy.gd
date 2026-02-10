@@ -30,7 +30,9 @@ func _physics_process(_delta):
 		move_and_slide()
 
 func take_damage(amount: float):
-	health -= amount
+	health -= amount	
+	sprite.modulate = Color.RED
+	get_tree().create_timer(0.1).timeout.connect(func(): sprite.modulate = Color.WHITE)
 	if health <= 0:
 		die()
 		

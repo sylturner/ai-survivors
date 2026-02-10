@@ -5,8 +5,9 @@
 [ext_resource type="Script" uid="uid://b7rjkjmqslv2d" path="res://Scripts/Global/SpawnWave.gd" id="3_13d42"]
 [ext_resource type="Resource" uid="uid://difrr1m334fut" path="res://Resources/Enemies/Zombie2.tres" id="3_ohpjj"]
 [ext_resource type="Resource" uid="uid://bq6hik7y318td" path="res://Resources/Enemies/Worm.tres" id="4_13d42"]
+[ext_resource type="Resource" uid="uid://c2io18x0s82ae" path="res://Resources/Enemies/Wolf.tres" id="5_bdd4r"]
 
 [resource]
 script = ExtResource("3_13d42")
-enemies = Array[ExtResource("1_ceh7n")]([ExtResource("2_ohpjj"), ExtResource("3_ohpjj"), ExtResource("4_13d42")])
+enemies = Array[ExtResource("1_ceh7n")]([ExtResource("2_ohpjj"), ExtResource("3_ohpjj"), ExtResource("4_13d42"), ExtResource("5_bdd4r")])
 metadata/_custom_type_script = "uid://b7rjkjmqslv2d"

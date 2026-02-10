@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://1btn111pbfu2"]
+
+[ext_resource type="PackedScene" uid="uid://dyffdgtoc13" path="res://Scenes/Weapons/Weapon.tscn" id="1_2xx1t"]
+[ext_resource type="Script" uid="uid://cngtjagl14ujv" path="res://Scenes/Weapons/Axe.gd" id="2_x27a8"]
+
+[node name="Axe" unique_id=419358785 instance=ExtResource("1_2xx1t")]
+script = ExtResource("2_x27a8")
+projectile_count = 3
+arc_angle = 60.0

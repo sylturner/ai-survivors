@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://q3jv73xr8to0"]
+
+[ext_resource type="PackedScene" uid="uid://dhqrfj4rrsug3" path="res://Scenes/Projectiles/Projectile.tscn" id="1_f7l1l"]
+[ext_resource type="Script" uid="uid://ytde8ydee5vu" path="res://Scripts/Global/WeaponData.gd" id="1_rm5i6"]
+
+[resource]
+script = ExtResource("1_rm5i6")
+name = "Magic Wand"
+projectile_node = ExtResource("1_f7l1l")
+damage = 10.0
+cooldown = 1.5
+speed = 100.0
+lifespan = 10.0
+metadata/_custom_type_script = "uid://ytde8ydee5vu"

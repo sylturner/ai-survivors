@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://difrr1m334fut"]
 
-[ext_resource type="PackedScene" uid="uid://c4nrxd101tmad" path="res://Scenes/Enemies/Zombie2.tscn" id="1_gepv5"]
 [ext_resource type="Script" uid="uid://cutln63fpwonl" path="res://Scripts/Global/EnemyData.gd" id="2_xpfvg"]
 
 [resource]
 script = ExtResource("2_xpfvg")
-scene = ExtResource("1_gepv5")
+name = "Zombie 2"
+speed = 75.0
 metadata/_custom_type_script = "uid://cutln63fpwonl"

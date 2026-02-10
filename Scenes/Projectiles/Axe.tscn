@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://domgilluoqi3u"]
+
+[ext_resource type="PackedScene" uid="uid://dhqrfj4rrsug3" path="res://Scenes/Projectiles/Projectile.tscn" id="1_rrre8"]
+[ext_resource type="Script" uid="uid://bqgltusmt2xi7" path="res://Scenes/Projectiles/AxeProjectile.gd" id="2_d66h3"]
+[ext_resource type="Texture2D" uid="uid://d3yxkrm8xtvam" path="res://Assets/Sprites/Weapons/Axe.png" id="2_jukh3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d66h3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jukh3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4r84l"]
+radius = 7.0
+
+[node name="Projectile" unique_id=911279284 instance=ExtResource("1_rrre8")]
+script = ExtResource("2_d66h3")
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1355897158]
+position = Vector2(-4.7683716e-07, -4.7683716e-07)
+scale = Vector2(0.07972972, 0.07972972)
+sprite_frames = SubResource("SpriteFrames_d66h3")
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1269448574]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_4r84l")
