@@ -11,7 +11,10 @@ func fire() -> void:
 	# Calculate the starting angle (half the arc to the left)
 	var start_angle = -arc_angle / 2.0
 	# Calculate how many degrees between each axe
-	var angle_step = arc_angle / (projectile_count - 1) if projectile_count > 1 else 0
+	var angle_step = 0
+	if projectile_count > 1:
+		angle_step = arc_angle / (projectile_count - 1) 
+		
 
 	for i in range(projectile_count):
 		var current_angle = start_angle + (angle_step * i)

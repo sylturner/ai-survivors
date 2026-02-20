@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cbrix1j5l88bc" path="res://Scenes/Player/WeaponManager.gd" id="3_h54ih"]
 [ext_resource type="Script" uid="uid://ytde8ydee5vu" path="res://Scripts/Global/WeaponData.gd" id="4_jmcll"]
 [ext_resource type="Resource" uid="uid://dpl867hjr4gx6" path="res://Resources/Weapons/Axe.tres" id="5_jmcll"]
+[ext_resource type="Resource" uid="uid://q3jv73xr8to0" path="res://Resources/Weapons/MagicWand.tres" id="6_4wape"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7cvjj"]
 radius = 47.24
@@ -20,13 +21,13 @@ texture = ExtResource("1_fqfuk")
 visible = false
 shape = SubResource("CircleShape2D_7cvjj")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1704573097]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1704573097 groups=["main_camera"]]
 
 [node name="Timer" type="Timer" parent="." unique_id=779248681]
 autostart = true
 
 [node name="WeaponManager" type="Node2D" parent="." unique_id=747184165]
 script = ExtResource("3_h54ih")
-starting_weapons = Array[ExtResource("4_jmcll")]([ExtResource("5_jmcll")])
+starting_weapons = Array[ExtResource("4_jmcll")]([ExtResource("5_jmcll"), ExtResource("6_4wape")])
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

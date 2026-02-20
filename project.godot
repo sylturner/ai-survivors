@@ -15,6 +15,10 @@ run/main_scene="uid://bd6177poy05g"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[global_group]
+
+main_camera=""
+
 [input]
 
 move_up={

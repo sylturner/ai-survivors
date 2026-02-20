@@ -1,11 +1,40 @@
-[gd_scene format=3 uid="uid://bd6177poy05g"]
+[gd_scene format=4 uid="uid://bd6177poy05g"]
 
 [ext_resource type="PackedScene" uid="uid://cx6fdo581ypq4" path="res://Scenes/Player/Player.tscn" id="1_r150o"]
 [ext_resource type="Script" uid="uid://c482xr6qqpme5" path="res://Scenes/Systems/EnemySpawner.gd" id="3_kln2b"]
 [ext_resource type="Script" uid="uid://b7rjkjmqslv2d" path="res://Scripts/Global/SpawnWave.gd" id="3_rgh2o"]
 [ext_resource type="Resource" uid="uid://dqbt6rjpt453b" path="res://Resources/Waves/Wave0.tres" id="4_pbw6q"]
+[ext_resource type="Texture2D" uid="uid://doi32d4nqwss4" path="res://Assets/Sprites/Buildings/Mid_Simple.png" id="6_v1gob"]
+[ext_resource type="Shader" uid="uid://sehg6qen6mgy" path="res://Shaders/building_perspective.gdshader" id="6_vy5pj"]
+[ext_resource type="Script" uid="uid://c3ns334q2k1c0" path="res://Scripts/vfx/Building.gd" id="7_jw32o"]
+[ext_resource type="Texture2D" uid="uid://cyt3rxsv3nhkh" path="res://Assets/Sprites/Buildings/building-poc.png" id="7_vy5pj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vy5pj"]
+shader = ExtResource("6_vy5pj")
+shader_parameter/camera_pos = Vector2(0, 0)
+shader_parameter/height_factor = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vy5pj"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(-240, -240, 0, 480, 480, 0),
+"attribute_data": PackedByteArray("MzMfPwAAAACamcE+AAAAAJqZwT6amcE+AAAAAJqZwT4AAAAAMzMfP5qZwT4zMx8/mpnBPgAAgD8zMx8/AACAPzMzHz8zMx8/AACAPzMzHz8AAIA/mpnBPjMzHz+amcE+"),
+"format": 34393296913,
+"index_count": 30,
+"index_data": PackedByteArray("CwAKAAkACAAHAAYABQAEAAMAAgABAAAACwAJAAgACAAGAAUABQADAAIAAgAAAAsACwAIAAUABQACAAsA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AABqQgAAcMMAAGrCAABwwwAAasIAAGrCAABwwwAAasIAAHDDAABqQgAAasIAAGpCAABqwgAAcEMAAGpCAABwQwAAakIAAGpCAABwQwAAakIAAHBDAABqwgAAakIAAGrC")
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4kpch"]
+shader = ExtResource("6_vy5pj")
+shader_parameter/camera_pos = Vector2(0, 0)
+shader_parameter/height_factor = 0.3
 
 [node name="Main" type="Node2D" unique_id=1505174941]
+y_sort_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=844007263]
 visible = false
@@ -13,8 +42,10 @@ offset_left = -10000.0
 offset_top = -10000.0
 offset_right = 10010.0
 offset_bottom = 10010.0
+color = Color(0, 1, 1, 1)
 
 [node name="Player" parent="." unique_id=205542719 instance=ExtResource("1_r150o")]
+y_sort_enabled = true
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=762558299]
 script = ExtResource("3_kln2b")
@@ -23,3 +54,48 @@ waves = Array[ExtResource("3_rgh2o")]([ExtResource("4_pbw6q")])
 [node name="Timer" type="Timer" parent="EnemySpawner" unique_id=2107986938]
 wait_time = 1.5
 autostart = true
+
+[node name="Building" type="Node2D" parent="." unique_id=541292687]
+visible = false
+position = Vector2(-249, -12)
+
+[node name="BuildingShadered" type="MeshInstance2D" parent="Building" unique_id=535547882]
+material = SubResource("ShaderMaterial_vy5pj")
+position = Vector2(-29, -78)
+mesh = SubResource("ArrayMesh_vy5pj")
+texture = ExtResource("7_vy5pj")
+
+[node name="Base" type="Sprite2D" parent="Building" unique_id=559101822]
+visible = false
+texture = ExtResource("6_v1gob")
+
+[node name="Wall1" type="Sprite2D" parent="Building" unique_id=2092090915]
+visible = false
+texture = ExtResource("6_v1gob")
+
+[node name="Wall2" type="Sprite2D" parent="Building" unique_id=590352242]
+visible = false
+texture = ExtResource("6_v1gob")
+
+[node name="Roof" type="Sprite2D" parent="Building" unique_id=2098689623]
+visible = false
+texture = ExtResource("6_v1gob")
+
+[node name="Building3" type="Node2D" parent="." unique_id=455577167]
+position = Vector2(-249, -12)
+
+[node name="BuildingShadered" type="MeshInstance2D" parent="Building3" unique_id=1867758704]
+visible = false
+material = SubResource("ShaderMaterial_vy5pj")
+position = Vector2(-749, 252)
+mesh = SubResource("ArrayMesh_vy5pj")
+texture = ExtResource("7_vy5pj")
+
+[node name="Polygon2D" type="Polygon2D" parent="Building3" unique_id=782205858]
+material = SubResource("ShaderMaterial_4kpch")
+position = Vector2(-109, 80)
+texture = ExtResource("7_vy5pj")
+polygon = PackedVector2Array(193, 5, 289, 2, 287, 194, 482, 193, 485, 290, 290, 288, 290, 479, 187, 481, 187, 289, -1, 295, -5, 191, 191, 191)
+uv = PackedVector2Array(193, 5, 289, 2, 287, 194, 482, 193, 485, 290, 290, 288, 290, 479, 187, 481, 187, 289, -1, 295, -5, 191, 191, 191)
+polygons = [PackedInt32Array(11, 2, 5, 8), PackedInt32Array(11, 10, 9, 8), PackedInt32Array(2, 3, 4, 5), PackedInt32Array(11, 0, 1, 2), PackedInt32Array(5, 8, 7, 6)]
+script = ExtResource("7_jw32o")
