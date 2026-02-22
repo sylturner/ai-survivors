@@ -12,21 +12,24 @@ func setup(weapon_data: WeaponData) -> void:
 	data = weapon_data
 
 func get_stat(stat: String) -> float:
-	# get base val
-	var value = data.get(stat)
-	
+	# get base val	
+	var base_value = data.get(stat)
+	var total_add = 0.0
+	var total_multi = 1.0 # 1.0 = 100% to start
+		
 	# add level bonus
 	for i in range(current_level - 1):
-		if data.levels[i].has(stat):
-			value += data.levels[i][stat]
+		if i < data.levels.size():
+			var lvl = data.levels[i]
+			total_add += lvl.get(stat + "_add") or 0.0
+			total_multi += lvl.get(stat + "_multi") or 0.0
 	
-	# apply player modifiers
-	match stat:
-		"damage": value *= player.stats.damage_mod
-		"area": value *= player.stats.area_mod
-		"cooldown": value *= player.stats.cooldown_mod
-		"amount": value += player.stats.projectile_count
+	# add player bonuses
+	if player and player.stats:
+		total_add += player.stats.get(stat + "_add") or 0.0
+		total_multi += player.stats.get(stat + "_multi") or 0.0
 		
+	var value = (base_value + total_add) * total_multi
 	return value
 	
 func generate_damage_event() -> DamageEvent:
