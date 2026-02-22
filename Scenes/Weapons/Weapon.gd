@@ -1,13 +1,45 @@
 extends Node2D
 class_name Weapon
 
+var data: WeaponData
+var current_level: int = 1
+
+@onready var player = get_tree().get_first_node_in_group("player")
 @onready var timer: Timer = $Timer
 @onready var muzzle: Marker2D = find_child("Muzzle")
 
-var data: WeaponData
-
 func setup(weapon_data: WeaponData) -> void:
 	data = weapon_data
+
+func get_stat(stat: String) -> float:
+	# get base val
+	var value = data.get(stat)
+	
+	# add level bonus
+	for i in range(current_level - 1):
+		if data.levels[i].has(stat):
+			value += data.levels[i][stat]
+	
+	# apply player modifiers
+	match stat:
+		"damage": value *= player.stats.damage_mod
+		"area": value *= player.stats.area_mod
+		"cooldown": value *= player.stats.cooldown_mod
+		"amount": value += player.stats.projectile_count
+		
+	return value
+	
+func generate_damage_event() -> DamageEvent:
+	var event = DamageEvent.new()
+	var final_dmg = get_stat("damage")
+	
+	if randf() < (player.stats.crit_chance * player.stats.luck):
+		event.is_critical = true
+		final_dmg *= player.stats.crit_multi
+		
+	event.base_damage = final_dmg
+	event.knockback_force = get_stat("knockback")
+	return event
 
 func _ready() -> void:
 	if data:

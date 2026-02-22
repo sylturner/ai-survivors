@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ctiyrlu7d1wiq" path="res://Scenes/Player/Player.gd" id="1_7cvjj"]
 [ext_resource type="Texture2D" uid="uid://chnnw2rs8oeo5" path="res://icon.svg" id="1_fqfuk"]
-[ext_resource type="Script" uid="uid://cbrix1j5l88bc" path="res://Scenes/Player/WeaponManager.gd" id="3_h54ih"]
+[ext_resource type="Script" uid="uid://cbrix1j5l88bc" path="res://Scenes/Weapons/WeaponManager.gd" id="3_h54ih"]
 [ext_resource type="Script" uid="uid://ytde8ydee5vu" path="res://Scripts/Global/WeaponData.gd" id="4_jmcll"]
 [ext_resource type="Resource" uid="uid://dpl867hjr4gx6" path="res://Resources/Weapons/Axe.tres" id="5_jmcll"]
 

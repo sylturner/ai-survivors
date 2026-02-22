@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://ytde8ydee5vu" path="res://Scripts/Global/WeaponData.gd" id="1_5330m"]
 [ext_resource type="PackedScene" uid="uid://domgilluoqi3u" path="res://Scenes/Projectiles/Axe.tscn" id="1_cnvn0"]
+[ext_resource type="Script" uid="uid://ctypiv3mw3w7d" path="res://Scenes/Weapons/WeaponLevel.gd" id="1_dnhs8"]
 
 [resource]
 script = ExtResource("1_5330m")
 name = "Axe"
-projectile_node = ExtResource("1_cnvn0")
 damage = 15.0
 cooldown = 2.0
+projectile_node = ExtResource("1_cnvn0")
 metadata/_custom_type_script = "uid://ytde8ydee5vu"

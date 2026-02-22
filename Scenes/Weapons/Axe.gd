@@ -11,7 +11,7 @@ func fire() -> void:
 	# Calculate the starting angle (half the arc to the left)
 	var start_angle = -arc_angle / 2.0
 	# Calculate how many degrees between each axe
-	var angle_step = arc_angle / (projectile_count - 1) if projectile_count > 1 else 0
+	var angle_step = arc_angle / (projectile_count - 1)
 
 	for i in range(projectile_count):
 		var current_angle = start_angle + (angle_step * i)
@@ -27,4 +27,4 @@ func spawn_axe(dir: Vector2) -> void:
 	proj.global_position = muzzle.global_position if muzzle else global_position
 	
 	# Pass the axe-specific speed/damage from its WeaponData	
-	proj.launch(dir, data.speed, data.damage, data.lifespan, data.death_effect)
+	proj.launch(dir, data.projectile_speed, data.damage, data.lifespan, data.death_effect)

@@ -1,15 +1,29 @@
 extends Resource
 class_name WeaponData
 
+@export_group("Metadata")
 @export var name: String = "Weapon"
+@export_multiline var description: String = "[Write your weapon description here]"
+
+@export_group("Base Stats")
+@export var damage: float = 5.0
+@export var area: float = 1.0
+@export var projectile_count: int = 1
+@export var cooldown: float = 1.0
+@export var projectile_speed: float = 600.0
+@export var knockback: float = 5.0
+@export var lifespan: float = 3.0
+@export var pierce: int = 0 # number of enemies it can pass through
+
+@export_group("Level Progression")
+@export var levels: Array[WeaponLevel] = []
+
+@export_group("Visuals")
 @export var projectile_node: PackedScene
 @export var texture: Texture2D
-@export var damage: float = 5.0
-@export var cooldown: float = 1.0
-@export var speed: float = 600.0
-@export var lifespan: float = 3.0
 @export var death_effect: PackedScene
 @export var projectile_frames: SpriteFrames
+
 
 const FALLBACK_SCENE_PATH = "res://Scenes/Weapons/Weapon.tscn"
 var cached_scene: PackedScene
